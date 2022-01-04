@@ -1,0 +1,9 @@
+spring:
+  application:
+     name: calculadora
+
+        
+server:
+     port: 9090
+     servlet:
+          context-path:  /${spring.application.name}
