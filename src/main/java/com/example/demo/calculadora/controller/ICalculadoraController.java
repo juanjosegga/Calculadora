@@ -7,6 +7,8 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseStatus;
 
+import com.example.demo.calculadora.dto.CalculadoraResponse;
+
 import io.swagger.annotations.ApiOperation;
 import io.swagger.annotations.ApiResponse;
 import io.swagger.annotations.ApiResponses;
@@ -16,7 +18,8 @@ import org.springframework.http.MediaType;
 @RequestMapping(
 		value="/operacion", 
 		consumes = MediaType.APPLICATION_JSON_VALUE,
-		produces = MediaType.APPLICATION_JSON_VALUE)
+		produces = MediaType.APPLICATION_JSON_VALUE
+		)
 public interface ICalculadoraController {
 
 	@GetMapping("/sumar/{num1}/{num2}")
@@ -28,7 +31,7 @@ public interface ICalculadoraController {
 	           @ApiResponse(code = 401, message = "Unauthorized"),
 	           @ApiResponse(code = 403, message = "Access denied"),
 	           @ApiResponse(code = 500, message = "500 Failure")})
-	public ResponseEntity<Double> sumar(@PathVariable(value="num1", required=true) Double num1,  @PathVariable(value="num2", required=true) Double num2);
+	public ResponseEntity<CalculadoraResponse> sumar(@PathVariable(value="num1", required=true) Double num1,  @PathVariable(value="num2", required=true) Double num2);
 	
 	@GetMapping("/restar/{num1}/{num2}")
 	@ApiOperation(value = "Resta dos números")
@@ -39,7 +42,7 @@ public interface ICalculadoraController {
 	           @ApiResponse(code = 401, message = "Unauthorized"),
 	           @ApiResponse(code = 403, message = "Access denied"),
 	           @ApiResponse(code = 500, message = "500 Failure")})
-	public ResponseEntity<Double> restar(@PathVariable(value="num1", required=true) Double num1,  @PathVariable(value="num2", required=true) Double num2);
+	public ResponseEntity<CalculadoraResponse> restar(@PathVariable(value="num1", required=true) Double num1,  @PathVariable(value="num2", required=true) Double num2);
 	
 	
 }

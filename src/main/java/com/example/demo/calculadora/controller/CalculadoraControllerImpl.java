@@ -5,6 +5,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.example.demo.calculadora.dto.CalculadoraResponse;
 import com.example.demo.calculadora.services.ICalculadoraService;
 
 import io.swagger.annotations.Api;
@@ -17,13 +18,13 @@ public class CalculadoraControllerImpl implements ICalculadoraController {
 	ICalculadoraService iCalculadoraService;
 	
 	@Override
-	public ResponseEntity<Double> sumar(Double num1, Double num2) {
-		return new ResponseEntity<Double>(iCalculadoraService.sumar(num1, num2) , HttpStatus.OK);
+	public ResponseEntity<CalculadoraResponse> sumar(Double num1, Double num2) {
+		return new ResponseEntity<CalculadoraResponse>(iCalculadoraService.sumar(num1, num2) , HttpStatus.OK);
 	}
 
 	@Override
-	public ResponseEntity<Double> restar(Double num1, Double num2) {
-		return new ResponseEntity<Double>(iCalculadoraService.restar(num1, num2) , HttpStatus.OK);
+	public ResponseEntity<CalculadoraResponse> restar(Double num1, Double num2) {
+		return new ResponseEntity<CalculadoraResponse>(iCalculadoraService.restar(num1, num2) , HttpStatus.OK);
 	}
 
 }
